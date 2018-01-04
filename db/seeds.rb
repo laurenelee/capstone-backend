@@ -7,15 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# require 'faker'
-# include faker
-#
-# 20.times do
-#   AgencyDetail.create(
-#   name: Faker::Name.name,
-#   # etc
-#   )
-# end
+require 'faker'
+include Faker
+
+volunteer_type_array = ["seniors", "homelessness", "arts and culture", "animals", "advocacy and human rights", "children and youth", "computers and technology", "community", "education and literacy", "health and medicine", "disaster relief", "LGBT", "justice and legal", "environment", "faith-based", "crisis support", "immigrants and refugees", "sports and recreation"]
+
+20.times do
+  AgencyDetail.create(
+  name: Faker::App.name,
+  age_minimum: Faker::Number.between(4, 19),
+  volunteer_type: volunteer_type_array.sample,
+  lat_loc: Faker::Address.latitude,
+  long_loc: Faker::Address.longitude,
+  description: Faker::Lorem.paragraph
+  )
+end
 ######### for agency name:
 # Faker::App.name
 # or company name ?
