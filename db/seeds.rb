@@ -12,14 +12,19 @@ include Faker
 
 volunteer_type_array = ["seniors", "homelessness", "arts and culture", "animals", "advocacy and human rights", "children and youth", "computers and technology", "community", "education and literacy", "health and medicine", "disaster relief", "LGBT", "justice and legal", "environment", "faith-based", "crisis support", "immigrants and refugees", "sports and recreation"]
 
-20.times do
+photo_random = [ 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1350&q=80', 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1350&q=80', 'https://images.unsplash.com/photo-1469398718052-b9d13df0d7c9?auto=format&fit=crop&w=1351&q=80', 'https://images.unsplash.com/photo-1469398173142-20d7f23dfb26?auto=format&fit=crop&w=1351&q=80', 'https://images.unsplash.com/photo-1511898634545-c01af8a54dd5?auto=format&fit=crop&w=1420&q=80', 'https://images.unsplash.com/photo-1507698742121-03afd7bf95c5?auto=format&fit=crop&w=1350&q=80', 'https://images.unsplash.com/photo-1494257610566-28280a243b22?auto=format&fit=crop&w=668&q=80', 'https://images.unsplash.com/photo-1437914983566-976d85602771?auto=format&fit=crop&w=1350&q=80', 'https://images.unsplash.com/photo-1510940385761-716fc56197e8?auto=format&fit=crop&w=1446&q=80', 'https://images.unsplash.com/photo-1493528237448-144452699e16?auto=format&fit=crop&w=1465&q=80', 'https://images.unsplash.com/photo-1495983239379-7f250e210f10?auto=format&fit=crop&w=1491&q=80']
+
+# photo = '../app/assets/'
+
+30.times do
   AgencyDetail.create(
   name: Faker::App.name,
   age_minimum: Faker::Number.between(4, 19),
   volunteer_type: volunteer_type_array.sample,
   lat_loc: Faker::Address.latitude,
   long_loc: Faker::Address.longitude,
-  description: Faker::Lorem.paragraph
+  description: Faker::Lorem.paragraph,
+  photo_url: photo_random.sample
   )
 end
 ######### for agency name:
