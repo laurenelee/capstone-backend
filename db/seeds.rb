@@ -17,12 +17,14 @@ photo_random = [ 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?a
 url = ['https://www.volunteermatch.org/search/org54991.jsp', 'https://www.volunteermatch.org/search/opp1893810.jsp', 'https://www.volunteermatch.org/search/opp787830.jsp', 'https://www.volunteermatch.org/search/opp2856726.jsp']
 # photo = '../app/assets/'
 
+zip_data = ['98101', '98102', '98103', '98104', '98105', '98106', '98107', '98108', '98109', '98111', '98112', '98113', '98114', '98115']
+
 100.times do
   AgencyDetail.create(
   name: Faker::App.name,
   age_minimum: Faker::Number.between(4, 19),
   volunteer_type: volunteer_type_array.sample,
-  zip: Faker::Address.zip_code,
+  zip: zip_data.sample,
   description: Faker::Lorem.paragraph,
   photo_url: photo_random.sample,
   url: url.sample

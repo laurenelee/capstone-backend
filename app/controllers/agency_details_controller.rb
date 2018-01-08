@@ -17,7 +17,14 @@ class AgencyDetailsController < ApplicationController
   def search
     @query = {}
     @query[:volunteer_type] = params[:volunteer_type] if params[:volunteer_type]
+    @query[:zip] = params[:zip] if params[:zip]
 
+    # & :zip or , :zip
+
+    # @query = @query.zip(params[:zip]) if params[:zip].present?
+    # @query = @query.volunteer_type(params[:volunteer_type]) if params[:volunteer_type].present?
+
+    # render json: AgencyDetail.where("zip = ? AND volunteer_type = ?", zip, volunteer_type).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
     render json: AgencyDetail.where(@query).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
