@@ -5,12 +5,12 @@ class AgencyDetailsController < ApplicationController
   def index
     @agency_details = AgencyDetail.all
 
-    render json: @agency_details.as_json(only:[:id, :name, :age_minimum, :volunteer_type, :lat_loc, :long_loc, :description, :photo_url, :url])
+    render json: @agency_details.as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
   # GET /agency_details/1
   def show
-    render json: @agency_detail.as_json(only:[:id, :name, :age_minimum, :volunteer_type, :lat_loc, :long_loc, :description, :photo_url, :url])
+    render json: @agency_detail.as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
 # GET /search_agency_details
@@ -18,7 +18,7 @@ class AgencyDetailsController < ApplicationController
     @query = {}
     @query[:volunteer_type] = params[:volunteer_type] if params[:volunteer_type]
 
-    render json: AgencyDetail.where(@query).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :lat_loc, :long_loc, :description, :photo_url, :url])
+    render json: AgencyDetail.where(@query).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
   # POST /agency_details
@@ -56,7 +56,7 @@ class AgencyDetailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def agency_detail_params
-      params.require(:agency_detail).permit(:name, :age_minimum, :volunteer_type, :lat_loc, :long_loc, :description, :photo_url, :url
+      params.require(:agency_detail).permit(:name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url
       )
     end
 end
