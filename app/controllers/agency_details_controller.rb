@@ -13,18 +13,13 @@ class AgencyDetailsController < ApplicationController
     render json: @agency_detail.as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
-# GET /search_agency_details
+  # GET /search_agency_details
   def search
     @query = {}
     @query[:volunteer_type] = params[:volunteer_type] if params[:volunteer_type]
     @query[:zip] = params[:zip] if params[:zip]
+    @query[:age_minimum] = user_age_range
 
-    # & :zip or , :zip
-
-    # @query = @query.zip(params[:zip]) if params[:zip].present?
-    # @query = @query.volunteer_type(params[:volunteer_type]) if params[:volunteer_type].present?
-
-    # render json: AgencyDetail.where("zip = ? AND volunteer_type = ?", zip, volunteer_type).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
     render json: AgencyDetail.where(@query).as_json(only:[:id, :name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url])
   end
 
@@ -54,16 +49,21 @@ class AgencyDetailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_agency_detail
-      @agency_detail = AgencyDetail.find(params[:id])
-      # @agency_detail = AgencyDetail.where(volunteer_type: params[:volunteer_type])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_agency_detail
+    @agency_detail = AgencyDetail.find(params[:id])
+    # @agency_detail = AgencyDetail.where(volunteer_type: params[:volunteer_type])
 
-    end
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def agency_detail_params
-      params.require(:agency_detail).permit(:name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url
-      )
-    end
+  # Only allow a trusted parameter "white list" through.
+  def agency_detail_params
+    params.require(:agency_detail).permit(:name, :age_minimum, :volunteer_type, :zip, :description, :photo_url, :url
+    )
+  end
+
+
+  def user_age_range
+    (params[:age_minimum].to_i)..19
+  end
 end
