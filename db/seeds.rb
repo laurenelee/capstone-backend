@@ -19,7 +19,7 @@ url = ['https://www.volunteermatch.org/search/org54991.jsp', 'https://www.volunt
 
 zip_data = ['98101', '98102', '98103', '98104', '98105', '98106', '98107', '98108', '98109', '98111', '98112', '98113', '98114', '98115']
 
-300.times do
+500.times do
   AgencyDetail.create(
   name: Faker::App.name,
   age_minimum: Faker::Number.between(4, 19),
