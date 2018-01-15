@@ -19,13 +19,17 @@ url = ['https://www.volunteermatch.org/search/org54991.jsp', 'https://www.volunt
 
 zip_data = ['98101', '98102', '98103', '98104', '98105', '98106', '98107', '98108', '98109', '98111', '98112', '98113', '98114', '98115']
 
+description_data = ["Safe Place Shelter is  dedicated to ending abuse and providing compassionate treatment for victims of domestic violence for over 15 years. We're available 24 hours a day with an emergency hotline, and we provide confidential shelter, counseling, resources, justice system advocacy, and youth programs", "Volunteers assist with youth programming as needed, and work outdoors with youth of varying socioeconomic backgrounds. Must have verbal, nonverbal, and listening skills, enjoy working with people, and have the ability to handle stressful situations, follow directions, and provide customer service.", "Do you have a talent for putting on a historical demonstration or just enjoy sharing with
+others something engaging about Northern Ohio history? This is an opportunity to share informal interpretation as a historical artisan that will be both stimulating and educational.", "Volunteers assist the National Park Service in presenting Student Explorer programming to children.", "Volunteers assist food service with food preparation and clean up before and after meal times.", "Kids can work alongside their parents to help organizations like Shoreline-based Food Lifeline and Tacoma-based Food Connection to package large food donations for local food banks and shelters.", "You can help plant, weed, and harvest in community gardens such as the Magnuson Children’s Garden in northeast Seattle, or help grow food for low-income families and seniors at places like the Giving Garden at Marra Farm", "The Graphic Design Volunteer will provide assistance to the marketing and
+communications team with creating and updating design elements across the organisation.", "You’ll spend a lot of time cleaning up after the animals, feeding the animals, and helping potential adopters through the adoption process. After finishing these tasks, you will get to play with the animals.", "Before starting your volunteer work, most zoos/sanctuaries require you undergo a training program (the length of time will vary). During the training program, you’ll learn about conservation and ecology issues, biomes, and the species of the plants and animals at the zoo/sanctuary.", "Consider volunteering at your local soup kitchen. As a soup kitchen volunteer, you might cook food, help distribute food to the homeless, and clean up the food and plates/utensils.", "Love being around books? You should consider being a library volunteer. As a library volunteer, you may organize books, help repair books, help visitors locate books, help visitors use the computer, or help younger students with their homework.", "As a cleanup volunteer, you’ll be helping pick up garbage on the beach or in the forest or park. This is an extremely important for reducing pollution and helping little creatures (many ingest or get tangled in our trash).", "As a museum volunteer, you’ll educate guests about museum exhibits, conduct workshops and demonstrations for visitors, and/or provide administrative support (help with ticketing and directing visitors)."]
+
 500.times do
   AgencyDetail.create(
   name: Faker::App.name,
   age_minimum: Faker::Number.between(4, 19),
   volunteer_type: volunteer_type_array.sample,
   zip: zip_data.sample,
-  description: Faker::Lorem.paragraph,
+  description: description_data.sample,
   photo_url: photo_random.sample,
   url: url.sample
   )
