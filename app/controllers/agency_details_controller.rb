@@ -64,6 +64,6 @@ class AgencyDetailsController < ApplicationController
 
 
   def user_age_range
-    (params[:age_minimum].to_i)..19
+    1..(params[:age_minimum].to_i)
   end
 end
