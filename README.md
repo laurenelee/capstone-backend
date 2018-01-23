@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+RAILS API
 
-Things you may want to cover:
+Database created for capstone 'Volley': A React Native App 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Volunteer Agency:
+- Name
+- Age minimum
+- Zip code
+- Volunteer type
+- Description
+- Photo url
+- Sign up link
